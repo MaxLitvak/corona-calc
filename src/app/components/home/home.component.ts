@@ -10,7 +10,9 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+    $( "#fader" ).fadeTo( "slow" , 0, function() {
+      // Animation complete.
+    });
   }
 
 }
