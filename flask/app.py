@@ -27,11 +27,7 @@ lookup_table = {
 "cancer": .056
 }
 
-counties = pd.read_csv('./us-counties.csv')
-
-counties['mortality_rate'] = counties['deaths'] / counties['cases']
-
-new_counties = counties[counties['date'] == '2020-05-02']
+counties = pd.read_csv('./new_counties.csv')
 
 @app.route('/', methods=['GET'])
 def home():
