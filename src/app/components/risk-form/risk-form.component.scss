@@ -5,7 +5,12 @@
 	border: 1px solid $gray-400;
 	width: 45%;
 	padding: 50px 0px 50px;
-	border-radius: 50px;
+	border-radius: 35px;
+	box-shadow: 1px 1px 5px 1px #ccc
+}
+
+.form-title {
+	padding-bottom: 25px;
 }
 
 .form-control{
@@ -13,11 +18,11 @@
 }
 
 .dropdown-toggle{
-	border-radius: 50px;
+	border-radius: 10px;
 }
 
 .input-wrapper {
-	padding: 0px 22% 0px 22%;
+	padding: 0px 25% 0px 25%;
 }
 
 .inline-form-group {
@@ -34,4 +39,8 @@
 
 .gender {
 	float: right;
+}
+
+.conditions-label {
+	font-size: 1rem;
 }
