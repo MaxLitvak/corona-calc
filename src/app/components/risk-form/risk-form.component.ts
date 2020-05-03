@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RiskFormComponent implements OnInit {
 
+	gender: string = 'Select';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  assignGender(val) {
+  	if (val == 1) return this.gender = 'Male';
+  	this.gender = 'Female';
   }
 
 }

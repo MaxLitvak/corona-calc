@@ -4,4 +4,28 @@
 			<h3>Calculate my Risk</h3>
 		</div>
 	</div>
+	<form>
+		<div class="row">
+			<div class="col-4 offset-1">
+				<div class="form-group">
+					<label for="age">Age</label>
+					<input type="text" class="form-control" id="age">
+				</div>
+			</div>
+			<div class="col-4 offset-2">
+				<div class="form-group">
+					<label>Gender</label>
+					<div class="dropdown">
+					  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    {{ gender }}
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" (click)="assignGender(1)">Male</a>
+					    <a class="dropdown-item" (click)="assignGender(2)">Female</a>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>

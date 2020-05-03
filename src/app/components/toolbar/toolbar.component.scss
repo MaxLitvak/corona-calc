@@ -8,10 +8,14 @@
     font-weight: 700;
     padding-top: auto;
     padding-bottom: auto;
-}
+    margin-left: 20px;
+    &:hover {
+			cursor: pointer;
+		}
 
-.nav-item:not(:first-child) {
-	padding-left: 100px;
+		&:focus {
+			outline: none;
+		}
 }
 
 .btn{
@@ -23,12 +27,10 @@
 }
 
 .title {
-	&:hover {
-		cursor: pointer;
-	}
+	
 
-	&:focus {
-		outline: none;
-	}
+}
 
+.btn {
+	margin-right: 20px;
 }
