@@ -14,7 +14,7 @@ export class ToolbarComponent implements OnInit {
 
   scroll() {
   	$([document.documentElement, document.body]).animate({
-      scrollTop: $("#form").offset().top
+      scrollTop: $('#form').offset().top
     }, 0);
   }
 
