@@ -1,4 +1,9 @@
 @import "variables";
+
+html{
+    z-index:10 !important;
+}
+
 .navbar{
     background-color: rgb(30,30,30) !important;
     padding: 10px;
