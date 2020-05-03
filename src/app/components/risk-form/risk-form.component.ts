@@ -16,6 +16,7 @@ export class RiskFormComponent implements OnInit {
 	counties: string[] = data;
   countiesMatch: string[] = [];
   enter: boolean = true;
+  percentage;
 
   constructor(private http: HttpClient) {
     $(document).ready(() => {
@@ -89,7 +90,7 @@ export class RiskFormComponent implements OnInit {
 
   calculate() {
     this.http.get(`http://127.0.0.1:5000/user_info?age=${this.age}&sex=${this.sex.toLowerCase()}&condition=${this.condition}&county_state=${this.county}`).subscribe((data) => {
-      console.log(data);
+      this.percentage = data;
     });
   }
 
