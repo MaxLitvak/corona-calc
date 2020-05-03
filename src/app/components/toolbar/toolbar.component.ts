@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,15 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   scroll() {
-  	$([document.documentElement, document.body]).animate({
-      scrollTop: $('#form').offset().top
-    }, 0);
+    this.router.navigate(['']);
+    $(document).ready(() => {
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $('#form').offset().top
+      }, 0);
+    });
+  	
   }
 
 }

@@ -1,6 +1,5 @@
 @import "variables";
 
-
 .container {
 	background-color: white;
 	border: 1px solid $gray-400;
@@ -48,4 +47,39 @@
 
 .conditions-label {
 	font-size: 1rem;
+}
+
+.dropdown-item {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.county-dropdown {
+	width: inherit;
+	border-radius: 3px;
+	top: 72px;
+	max-height: 250px;
+	overflow: scroll;
+}
+
+.btn {
+	margin-top: 20px;
+}
+
+.table {
+	margin-top: 10px;
+	width: 70%;
+	margin-left: 15%;
+}
+
+th {
+	&:hover {
+		background-color: $gray-100;
+		cursor: pointer;
+	}
+}
+
+.clicked {
+	background-color: $gray-300;
 }
