@@ -6,23 +6,23 @@
 	</div>
 	<form>
 		<div class="row">
-			<div class="col-1 offset-4">
-				<div class="form-group">
-					<label for="age">Age</label>
-					<input type="number" min="1" class="form-control" id="age">
-				</div>
-			</div>
-			<div class="col-2 offset-1">
-				<div class="form-group">
-					<label>Gender</label>
-					<div class="dropdown">
-					  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    {{ gender }}
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" (click)="assignGender(1)">Male</a>
-					    <a class="dropdown-item" (click)="assignGender(2)">Female</a>
-					  </div>
+			<div class="col-12">
+				<div class="input-wrapper">
+					<div class="form-group inline-form-group">
+						<label for="age">Age</label>
+						<input type="number" min="1" class="form-control age-input" id="age">
+					</div>
+					<div class="form-group inline-form-group gender">
+						<label>Gender</label>
+						<div class="dropdown">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    {{ gender }}
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						    <a class="dropdown-item" (click)="assignGender(1)">Male</a>
+						    <a class="dropdown-item" (click)="assignGender(2)">Female</a>
+						  </div>
+						</div>
 					</div>
 				</div>
 			</div>

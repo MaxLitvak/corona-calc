@@ -1,13 +1,37 @@
 @import "variables";
 
 .container {
-	// background-color: $gray-300;
+	background-color: white;
+	border: 1px solid $gray-400;
+	width: 45%;
+	padding: 50px 0px 50px;
+	border-radius: 50px;
 }
 
 .form-control{
-	border-radius: 50px;
+	border-radius: 10px;
 }
 
 .dropdown-toggle{
 	border-radius: 50px;
+}
+
+.input-wrapper {
+	padding: 0px 22% 0px 22%;
+}
+
+.inline-form-group {
+	display: inline-block;
+}
+
+.age-input {
+	width: 100px;
+}
+
+.form-control {
+	right: 2px;
+}
+
+.gender {
+	float: right;
 }
