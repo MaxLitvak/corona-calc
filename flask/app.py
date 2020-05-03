@@ -54,7 +54,6 @@ def api_all():
     sex = query_parameters.get('sex')
     condition = query_parameters.get('condition')
     county_state = query_parameters.get('county')
-    county_state = 'Autauga, Alabama'
 
     ages = list(lookup_table["age"].keys())
     age_range = ages[len(ages) - get_digit(age, 1)]

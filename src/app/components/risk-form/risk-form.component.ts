@@ -49,8 +49,8 @@ export class RiskFormComponent implements OnInit {
       this.enter = false;
       this.countiesMatch = [];
       for (const x in this.counties) {
-        this.counties[x] = this.counties[x].toLowerCase();
-        if ((this.counties[x].includes(this.county) && this.county.length > 1) || (this.counties[x].substring(0,1) == this.county)) this.countiesMatch.push(this.counties[x]);
+        const county = this.counties[x].toLowerCase();
+        if ((county.includes(this.county) && this.county.length > 1) || (county.substring(0,1) == this.county)) this.countiesMatch.push(this.counties[x]);
       }
       if (!this.countiesMatch[0]) this.countiesMatch = null;
     } else {
