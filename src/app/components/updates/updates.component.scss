@@ -1,0 +1,43 @@
+.update-li{
+    background-color: rgb(255, 255, 255);
+    // background-image: linear-gradient(white, rgb(240, 240, 240));
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    transition: all ease-in-out .2s;
+    color: black !important;
+    cursor: pointer;
+    -webkit-mask-position: 0 0;
+    -webkit-mask-size: 100% 200px;
+    -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, 
+       color-stop(0.00,  rgba(0,0,0,1)),
+       color-stop(0.45,  rgba(0,0,0,1)),
+       color-stop(0.50,  rgba(0,0,0,1)),
+       color-stop(0.55,  rgba(0, 201, 255,1)),
+       color-stop(1.00,  rgba(0, 201, 255,1))
+       );
+}
+
+a{
+    padding-left: 20px;
+    color: black !important;
+}
+
+a:hover{
+    color: white;
+}
+
+.update-li:hover{
+    background-image: linear-gradient(to right, #00C9FF,#92FE9D);
+    transform: scale(1.01,1.01);
+    color: white;
+    // -webkit-mask-position: -300px -300px;
+}
+
+.news-image{
+    height: 70px;
+    border-radius: 10px;
+}
+
+html, body{
+}

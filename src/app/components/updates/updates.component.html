@@ -1,1 +1,5 @@
-<p>updates works!</p>
+<div class="articles-list">
+    <div *ngIf="articles!=null">
+    <div class = "update-li" *ngFor="let article of articles"><img class = "news-image" src="{{article.urlToImage}}" alt="https://img.favpng.com/20/25/11/newspaper-computer-icons-symbol-png-favpng-uxcxrxULJwf1TaT4zWQDsFUcw.jpg"><a href = "{{article.url}}">{{article.title}}</a></div>
+    </div>
+</div>
