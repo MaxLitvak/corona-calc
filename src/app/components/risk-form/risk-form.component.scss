@@ -85,7 +85,11 @@ th {
 }
 
 .clicked {
-	background-color: $gray-300;
+	background-color: $gray-400;
+
+	&:hover {
+		background-color: $gray-400;
+	}
 }
 
 .percentage {

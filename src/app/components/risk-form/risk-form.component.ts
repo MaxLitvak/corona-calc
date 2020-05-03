@@ -64,7 +64,9 @@ export class RiskFormComponent implements OnInit {
   }
 
   condition(num) {
-    if ($(`#${num}`).hasClass('clicked')) {
+    const hasClass = $(`#${num}`).hasClass('clicked');
+    $('th').removeClass('clicked');
+    if (hasClass) {
       $(`#${num}`).removeClass('clicked');
       this.medCondition = null;
     } else {
