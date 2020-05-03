@@ -1,12 +1,13 @@
 @import "variables";
 
+
 .container {
 	background-color: white;
 	border: 1px solid $gray-400;
 	width: 45%;
 	padding: 50px 0px 50px;
 	border-radius: 35px;
-	box-shadow: 1px 1px 5px 1px #ccc
+	box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37)
 }
 
 .form-title {
