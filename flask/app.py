@@ -1,9 +1,11 @@
 import flask
 from flask import request, jsonify
+from flask_cors import CORS, cross_origin
 import pandas as pd
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 lookup_table = {
 "age":{
@@ -36,12 +38,14 @@ def get_digit(number, n):
     return number // 10**n % 10
 
 @app.route('/', methods=['GET'])
+@cross_origin()
 def home():
     return '''<h1>Calculator API</h1>
 <p>Calculator API</p>'''
 
 
-@app.route('/user_info', methods=['GET'])
+@app.route('/user_info')
+@cross_origin()
 def api_all():
     new_counties = pd.read_csv('./new_counties.csv')
     query_parameters = request.args
