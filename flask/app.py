@@ -53,7 +53,8 @@ def api_all():
     age = int(query_parameters.get('age'))
     sex = query_parameters.get('sex')
     condition = query_parameters.get('condition')
-    county_state = request.form.get('county_state')
+    county_state = query_parameters.get('county')
+    print(county_state)
 
     ages = list(lookup_table["age"].keys())
     age_range = ages[len(ages) - get_digit(age, 1)]

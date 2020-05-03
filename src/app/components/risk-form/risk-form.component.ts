@@ -89,10 +89,9 @@ export class RiskFormComponent implements OnInit {
   }
 
   calculate() {
-    console.log(this.county);
     $.ajax({
       method: 'GET',
-      url: `http://127.0.0.1:5000/user_info?age=${this.age}&sex=${this.sex.toLowerCase()}&condition=${this.medCondition ? this.medCondition : 'none'}&county_state=${this.county}`,
+      url: `http://127.0.0.1:5000/user_info?age=${this.age}&sex=${this.sex.toLowerCase()}&condition=${this.medCondition ? this.medCondition : 'none'}&county=${this.county}`,
     }).done((data) => {
       console.log(data);
     });
