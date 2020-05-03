@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { UpdatesComponent } from './components/updates/updates.component';
+import { RiskFormComponent } from './components/risk-form/risk-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     HomeComponent,
-    UpdatesComponent
+    UpdatesComponent,
+    RiskFormComponent
   ],
   imports: [
     BrowserModule,
