@@ -36,7 +36,7 @@ export class RiskFormComponent implements OnInit {
 
   assignGender(val) {
   	if (val == 1) {
-      this.sex = 'Male';
+      return this.sex = 'Male';
     }
   	this.sex = 'Female';
   }
