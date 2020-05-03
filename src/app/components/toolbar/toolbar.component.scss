@@ -1,3 +1,13 @@
 .nav-item:not(:first-child) {
 	padding-left: 100px;
 }
+
+.title {
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
