@@ -93,7 +93,7 @@ export class RiskFormComponent implements OnInit {
       method: 'GET',
       url: `http://127.0.0.1:5000/user_info?age=${this.age}&sex=${this.sex.toLowerCase()}&condition=${this.medCondition ? this.medCondition : 'none'}&county=${this.county}`,
     }).done((data) => {
-      console.log(data);
+      this.percentage = `${data.toFixed(2)*100}%`;
     });
   }
 
