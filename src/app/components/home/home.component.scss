@@ -1,23 +1,55 @@
 @import "variables";
 
 .main-screen {
-	background-image: linear-gradient(#00C9FF,#92FE9D);
-	height: 100%;
+	background-image: linear-gradient(to bottom right, #00C9FF,#92FE9D);
+	height: 100% !important;
+	background-attachment: fixed;
 }
 
-.additions {
+.addditions {
 	background-color: $gray-200;
 	padding: 100px 0px 100px;
 }
 
 h1{
+	width: 100%;
 	color: white;
 	font-weight: bold;
-	font-size: 50px;
+	font-size: 70px;
 	text-align: center;
 	margin: auto;
 	transform: translate(-50%, -50%);
-	top: calc(50% - 10px);
+	top: 50%;
 	left: 50%;
 	position: absolute;
+}
+
+.subtitle{
+	width: 100%;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	margin: auto;
+	transform: translate(-50%, -50%);
+	top: 60%;
+	left: 50%;
+	position: absolute;
+}
+
+.fas{
+	color: white;
+	font-size: 30px;
+	transform: translate(-50%, -50%);
+	bottom: 1%;
+	left: 50%;
+	position: absolute;
+	cursor: pointer;
+	transition: all ease-in-out .1s;
+}
+
+.fas:hover{
+	color: white;
+	font-size: 35px;
+	transform: translate(-50%, -50%);
+	bottom: 1.5%;
 }
