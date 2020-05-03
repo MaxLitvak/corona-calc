@@ -12,4 +12,10 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  scroll() {
+  	$([document.documentElement, document.body]).animate({
+      scrollTop: $("#form").offset().top
+    }, 0);
+  }
+
 }
