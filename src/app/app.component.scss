@@ -11,3 +11,9 @@ app-toolbar {
 .content {
 	flex: 1 1 auto;
 }
+
+app-toolbar {
+	position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
