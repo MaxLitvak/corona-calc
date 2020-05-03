@@ -1,9 +1,15 @@
 @import "variables";
 
+body{
+	background-color: rgb(30,30,30);
+}
+
 .main-screen {
 	background-image: linear-gradient(to bottom right, #00C9FF,#92FE9D);
 	height: 100% !important;
 	background-attachment: fixed;
+	// border-radius: 0px 0px 20px 20px;
+
 }
 
 .additions {
