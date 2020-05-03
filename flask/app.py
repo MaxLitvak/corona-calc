@@ -1,5 +1,6 @@
 import flask
 from flask import request, jsonify
+import pandas as pd
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -20,14 +21,19 @@ lookup_table = {
 "female": .017
 },
 "condition":{
+"none": .03,
 "cardiovascular": .0105,
 "diabetes": .073,
 "chronic_resp": .063,
 "hypertension": .06,
 "cancer": .056
 }
+}
 
-counties = pd.read_csv('./new_counties.csv')
+
+
+def get_digit(number, n):
+    return number // 10**n % 10
 
 @app.route('/', methods=['GET'])
 def home():
@@ -37,19 +43,30 @@ def home():
 
 @app.route('/user_info', methods=['GET'])
 def api_all():
-
+    new_counties = pd.read_csv('./new_counties.csv')
     query_parameters = request.args
 
-    age_range = query_parameters.get('age_range')
+    age = int(query_parameters.get('age'))
     sex = query_parameters.get('sex')
     condition = query_parameters.get('condition')
-    county = query_parameters.get('county')
+    county_state = query_parameters.get('county_state')
 
+    ages = list(lookup_table["age"].keys())
+    age_range = ages[len(ages) - get_digit(age, 1)]
+
+    split = county_state.index(',')
+    county = county_state[0:split]
+    state = county_state[(split + 2) : (len(county_state))]
 
     age_percentage = lookup_table["age"][age_range]
     sex_percentage = lookup_table["sex"][sex]
     condition_percentage = lookup_table["condition"][condition]
-    county_percentage = new_counties['mortality_rate'][county]
+
+
+    new_counties = new_counties[new_counties["county"] == county]
+    #new_counties = new_counties[new_counties["state"] == state]
+
+    county_percentage = new_counties['mortality_rate'][0]
 
     #overall rate
     overall_rate = .03
@@ -60,7 +77,8 @@ def api_all():
 
     predicted = overall_rate * risk_age * risk_sex * risk_condition
 
-    adjusted_pred = predicted * (county_percentage / overall)
+    adjusted_pred = predicted * (county_percentage / overall_rate)
+
 
     return  jsonify(adjusted_pred)
 
