@@ -1,0 +1,64 @@
+<div class="container-fluid main-screen" style="height: 500px">
+    <h1 class = "unselectable">Coronavirus Risk Calculator</h1>
+    <p class = "subtitle unselectable">Program to calculate your risk of dying from COVID-19</p>
+    <i class="fas fa-chevron-down"></i>
+</div>
+<div class="container-fluid additions">
+	<app-risk-form></app-risk-form>
+</div>
+
+
+@import "variables";
+
+.main-screen {
+	background-image: linear-gradient(to bottom right, #00C9FF,#92FE9D);
+	height: 100% !important;
+	background-attachment: fixed;
+}
+
+.addditions {
+	background-color: $gray-200;
+}
+
+h1{
+	width: 100%;
+	color: white;
+	font-weight: bold;
+	font-size: 70px;
+	text-align: center;
+	margin: auto;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	position: absolute;
+}
+
+.subtitle{
+	width: 100%;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	margin: auto;
+	transform: translate(-50%, -50%);
+	top: 60%;
+	left: 50%;
+	position: absolute;
+}
+
+.fas{
+	color: white;
+	font-size: 30px;
+	transform: translate(-50%, -50%);
+	bottom: 1%;
+	left: 50%;
+	position: absolute;
+	cursor: pointer;
+	transition: all ease-in-out .1s;
+}
+
+.fas:hover{
+	color: white;
+	font-size: 35px;
+	transform: translate(-50%, -50%);
+	bottom: 1.5%;
+}
