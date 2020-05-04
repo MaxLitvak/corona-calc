@@ -53,7 +53,7 @@ def api_all():
     age = int(query_parameters.get('age'))
     sex = query_parameters.get('sex')
     condition = query_parameters.get('condition')
-    county_state = query_parameters.get('county')
+    county_state = query_parameters.get('county_state')
 
     ages = list(lookup_table["age"].keys())
     age_range = ages[len(ages) - get_digit(age, 1)]
@@ -67,10 +67,11 @@ def api_all():
     condition_percentage = lookup_table["condition"][condition]
 
 
-    new_counties = new_counties[new_counties["county"] == county]
-    #new_counties = new_counties[new_counties["state"] == state]
+    match = new_counties[new_counties["county"] == county]
+    match2 = match[match["state"] == state]
 
-    county_percentage = new_counties['mortality_rate'][0]
+    county_percentage = match2['mortality_rate'].values[0]
+
 
     #overall rate
     overall_rate = .03
@@ -84,6 +85,6 @@ def api_all():
     adjusted_pred = predicted * (county_percentage / overall_rate)
 
 
-    return  jsonify(adjusted_pred)
+    return jsonify(adjusted_pred)
 
 app.run()
