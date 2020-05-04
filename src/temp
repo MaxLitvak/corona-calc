@@ -1,64 +1,103 @@
-<div class="container-fluid main-screen" style="height: 500px">
-    <h1 class = "unselectable">Coronavirus Risk Calculator</h1>
-    <p class = "subtitle unselectable">Program to calculate your risk of dying from COVID-19</p>
-    <i class="fas fa-chevron-down"></i>
-</div>
-<div class="container-fluid additions">
-	<app-risk-form></app-risk-form>
-</div>
+import { Component, OnInit } from '@angular/core';
+import { data } from '../../../assets/counties';
+import { HttpClient } from '@angular/common/http';
 
+@Component({
+  selector: 'app-risk-form',
+  templateUrl: './risk-form.component.html',
+  styleUrls: ['./risk-form.component.scss']
+})
+export class RiskFormComponent implements OnInit {
 
-@import "variables";
+	sex: string = 'Select';
+  county: string;
+  age: number;
+  medCondition: string;
+	counties: string[] = data;
+  countiesMatch: string[] = [];
+  enter: boolean = true;
+  percentage;
 
-.main-screen {
-	background-image: linear-gradient(to bottom right, #00C9FF,#92FE9D);
-	height: 100% !important;
-	background-attachment: fixed;
-}
+  constructor(private http: HttpClient) {
+    $(document).ready(() => {
+      const searchGroup = $('#county');
+      $(window).click(() => {
+        $('#county-dropdown').hide();
+      });
+      searchGroup.click((event) => {
+        event.stopPropagation();
+        $('#county-dropdown').show();
+      });
+    });
+  }
 
-.addditions {
-	background-color: $gray-200;
-}
+  ngOnInit() {
+  }
 
-h1{
-	width: 100%;
-	color: white;
-	font-weight: bold;
-	font-size: 70px;
-	text-align: center;
-	margin: auto;
-	transform: translate(-50%, -50%);
-	top: 50%;
-	left: 50%;
-	position: absolute;
-}
+  assignGender(val) {
+  	if (val == 1) {
+      return this.sex = 'Male';
+    }
+  	this.sex = 'Female';
+  }
 
-.subtitle{
-	width: 100%;
-	color: white;
-	font-size: 30px;
-	text-align: center;
-	margin: auto;
-	transform: translate(-50%, -50%);
-	top: 60%;
-	left: 50%;
-	position: absolute;
-}
+  monitorSearch() {
+    const dropdown = $('#county-dropdown');
+    dropdown.show();
+    if (this.county != '') {
+      this.county = this.county.toLowerCase();
+      this.enter = false;
+      this.countiesMatch = [];
+      for (const x in this.counties) {
+        const county = this.counties[x].toLowerCase();
+        if ((county.includes(this.county) && this.county.length > 1) || (county.substring(0,1) == this.county)) this.countiesMatch.push(this.counties[x]);
+      }
+      if (!this.countiesMatch[0]) this.countiesMatch = null;
+    } else {
+      this.countiesMatch = [];
+      this.enter = true;
+    }
+  }
 
-.fas{
-	color: white;
-	font-size: 30px;
-	transform: translate(-50%, -50%);
-	bottom: 1%;
-	left: 50%;
-	position: absolute;
-	cursor: pointer;
-	transition: all ease-in-out .1s;
-}
+  selectCounty(county) {
+    this.county = county;
+  }
 
-.fas:hover{
-	color: white;
-	font-size: 35px;
-	transform: translate(-50%, -50%);
-	bottom: 1.5%;
+  condition(num) {
+    const hasClass = $(`#${num}`).hasClass('clicked');
+    $('th').removeClass('clicked');
+    if (hasClass) {
+      $(`#${num}`).removeClass('clicked');
+      this.medCondition = null;
+    } else {
+      $(`#${num}`).addClass('clicked');
+      switch(num) {
+        case(0) :
+          this.medCondition = 'cardiovascular';
+          break;
+        case(1) :
+          this.medCondition = 'diabetes';
+        case(2) :
+          this.medCondition = 'chronic_resp';
+          break;
+        case(3) :
+          this.medCondition = 'hypertension';
+          break;
+        case(4) :
+          this.medCondition = 'cancer';
+      }
+    }
+    
+  }
+
+  calculate() {
+    $.ajax({
+      method: 'GET',
+      url: `http://127.0.0.1:5000/user_info?age=${this.age}&sex=${this.sex.toLowerCase()}&condition=${this.medCondition ? this.medCondition : 'none'}&county=${this.county}`,
+    }).done((data) => {
+      this.percentage = `${data.toFixed(2)*100}%`;
+    });
+    // this.percentage = Math.round(Math.random()*5);
+  }
+
 }
