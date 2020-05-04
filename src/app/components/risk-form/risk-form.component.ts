@@ -87,13 +87,13 @@ export class RiskFormComponent implements OnInit {
           this.medCondition = 'cancer';
       }
     }
-    
+
   }
 
   calculate() {
     $.ajax({
       method: 'GET',
-      url: `http://127.0.0.1:5000/user_info?age=${this.age}&sex=${this.sex.toLowerCase()}&condition=${this.medCondition ? this.medCondition : 'none'}&county=${this.county}`,
+      url: `http://127.0.0.1:5000/user_info?age=${this.age}&sex=${this.sex.toLowerCase()}&condition=${this.medCondition ? this.medCondition : 'none'}&county_state=${this.county}`,
     }).done((data) => {
       this.percentage = `${data.toFixed(2)*100}%`;
     });
