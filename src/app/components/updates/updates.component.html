@@ -1,5 +1,5 @@
 <div class="articles-list">
     <div *ngIf="articles!=null">
-    <div class = "update-li" *ngFor="let article of articles"><img class = "news-image" src="{{article.urlToImage}}" alt="https://img.favpng.com/20/25/11/newspaper-computer-icons-symbol-png-favpng-uxcxrxULJwf1TaT4zWQDsFUcw.jpg"><a href="{{article.url}}" target="_blank">{{article.title}}</a></div>
+    <div *ngFor="let article of articles"><a href="{{article.url}}" target="_blank"><div class="update-li"><img class = "news-image" src="{{article.urlToImage}}" alt="https://img.favpng.com/20/25/11/newspaper-computer-icons-symbol-png-favpng-uxcxrxULJwf1TaT4zWQDsFUcw.jpg"><a href="{{article.url}}" target="_blank" class = "update-link">{{article.title}}</a></div></a></div>
     </div>
 </div>
