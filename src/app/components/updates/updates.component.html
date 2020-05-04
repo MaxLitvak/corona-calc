@@ -1,4 +1,5 @@
 <div class="articles-list">
+    <div id="fader"></div>
     <div *ngIf="articles!=null">
     <div *ngFor="let article of articles"><a href="{{article.url}}" target="_blank"><div class="update-li"><img class = "news-image" src="{{article.urlToImage}}" alt="https://img.favpng.com/20/25/11/newspaper-computer-icons-symbol-png-favpng-uxcxrxULJwf1TaT4zWQDsFUcw.jpg"><a href="{{article.url}}" target="_blank" class = "update-link">{{article.title}}</a></div></a></div>
     </div>

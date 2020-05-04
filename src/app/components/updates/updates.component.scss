@@ -27,6 +27,17 @@ a.update-link{
     color: white;
 }
 
+#fader{
+	background-color: black;
+	position: fixed;
+	height:100%;
+	width:100%;
+	z-index: 100;
+	left: 0px;
+	top: 0px;
+	pointer-events:none;
+}
+
 .update-li:hover{
     background-image: linear-gradient(to right, #00C9FF,#92FE9D);
     transform: scale(1.01,1.01);

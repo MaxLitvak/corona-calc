@@ -20,6 +20,9 @@ export class UpdatesComponent implements OnInit {
   constructor(private datePipe: DatePipe) { }
 
   ngOnInit() {
+    $( "#fader" ).fadeTo( "slow" , 0, function() {
+      // Animation complete.
+    });
     console.log(this.datePipe.transform(this.date, "yyyy-MM-dd").toString())
     this.fetchData(this.datePipe.transform(this.date, "yyyy-MM-dd").toString());
   }
